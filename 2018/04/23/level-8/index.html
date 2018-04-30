@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<body2>
+    로딩중..
+</body2>
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="level-8-올바른 괄호사용언어
+python
+
+문제 내용
+N = 1일 경우에는 괄호가 () 1가지만 존재하므로 1을 리턴합니다.
+N = 3일 경우에는 ((())), (())(), ()(()), ()()(), (()()) 5가지가 존재하므로 5를 리턴하면 됩니다.
+
+올">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Choi sungho">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="level-8-올바른 괄호"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="7vv 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>level-8-올바른 괄호 - 7vv 블로그</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light banner">
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="white" href="/" title="7vv 블로그">
+            <i class="header-icon2 fa fa-home"></i>
+        </a>
+        <div class="db dtc-l v-mid w-100">
+            <!-- 
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+             -->
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘/">알고리즘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/활동/">활동</a></li></ul>    
+       
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aws-Summit-Seoul-2018/">Aws Summit Seoul 2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/카카오-예선/">카카오 예선</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/카탈란수/">카탈란수</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/프렌즈-4-블록/">프렌즈 4 블록</a></li></ul> 
+            <div class="admin-icon-box">
+                <i class="fa fa-cogs"></i>
+            </div>   
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center dt">
+        <div class="dtc v-mid white">
+            <!-- <h1 class="f1-l f2-m tc tc-m tl-ns">level-8-올바른 괄호</h1>
+            <p class="f4 fw3 tc tc-m tl-ns">2018-04-23</p>                -->
+                 
+        </div>        
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- 태그, 카테고리, 페이지로딩 ... -->
+<script>
+    const show = 'show';
+    const hidden = 'hidden';
+    const imgResizeBox = ['img-10','img-20','img-30','img-40','img-50','img-60','img-70','img-80','img-90'];    
+    const domController = {
+        show: 'body',
+        loading : 'body2',
+    };
+
+    //util prototype    
+    Array.prototype.random = function(){var count = this.length, randomnumber,temp; while( count ){ randomnumber = Math.random() * count-- | 0; temp = this[count]; this[count] = this[randomnumber]; this[randomnumber] = temp} return this}
+
+    //로딩화면 숨기기
+    try{
+        document.querySelector(domController.loading).classList += show;
+        document.querySelector(domController.show).classList += hidden;    
+    }catch(e){
+        console.log(e);
+    }
+    
+    window.onload = function() {       
+        //이미지 리사이징        
+        for(const size of imgResizeBox){
+            document.querySelectorAll(`img[title="${size}"]`).forEach((e)=>{
+                e.classList = size;
+            });
+        }
+        
+        //태그 #붙여주기        
+        document.querySelectorAll('.tag-list > li > a').forEach(e=> e.innerText = '#'+ e.innerText)
+        //태그 섞기
+        const tagList = (document.querySelector('.tag-list').innerHTML).split('</li>')            
+        document.querySelector('.tag-list').innerHTML = tagList.random().join('</li>');
+
+        //로딩완료
+        Object.keys(domController).forEach( e => document.querySelector(domController[e]).classList = '');        
+    }
+</script>
+
+<!-- 관리자 메뉴 -->
+<script>
+    
+</script>
+
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/카탈란수/">#카탈란수</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h1 id="level-8-올바른-괄호"><a href="#level-8-올바른-괄호" class="headerlink" title="level-8-올바른 괄호"></a>level-8-올바른 괄호</h1><h3 id="사용언어"><a href="#사용언어" class="headerlink" title="사용언어"></a>사용언어</h3><ul>
+<li>python</li>
+</ul>
+<h3 id="문제-내용"><a href="#문제-내용" class="headerlink" title="문제 내용"></a>문제 내용</h3><ul>
+<li>N = 1일 경우에는 괄호가 <code>()</code> 1가지만 존재하므로 1을 리턴합니다.</li>
+<li>N = 3일 경우에는 <code>((()))</code>, <code>(())()</code>, <code>()(())</code>, <code>()()()</code>, <code>(()())</code> 5가지가 존재하므로 5를 리턴하면 됩니다.</li>
+</ul>
+<p>올바른 괄호란 (())나 ()와 같이 올바르게 모두 닫힌 괄호를 의미합니다. )(나 ())() 와 같은 괄호는 올바르지 않은 괄호가 됩니다.<br>괄호를 이리저리 움직이며 올바른 괄호를 찾던 민호는 N개의 괄호쌍이 있을 때, 올바른 괄호를 만들 수 있는 경우의 수가 궁금해졌습니다.<br>괄호 쌍의 개수 N개가 주어졌을 때, 경우의 수를 반환하는 parenthesisCase 함수를 완성해 보세요.</p>
+<h3 id="문제-풀이"><a href="#문제-풀이" class="headerlink" title="문제 풀이"></a>문제 풀이</h3><p>올바르게 닫힌 괄호를 의미하는데 이를 카탈란 수로 풀수있다.</p>
+<img src="/2018/04/23/level-8/2.jpg">
+<p>해당 사진을 참고하면 이해가 쉽다.<br>이유는 x축 한칸 이동을 괄호 <code>(</code> 추가하고 y축 한칸 이동을 <code>)</code> 추가하는것으로 생각하면 된다.<br>이제 카탈란 수를 알고리즘으로 풀어 나가야하는데, 위키피디아에 자세하게 나와있다.</p>
+<img src="/2018/04/23/level-8/1.jpg">
+<p>이런 공식인데 쉽게 풀자면 <code>(2n)! / (n+1)!n!</code> 이다. 여기서 <code>n</code>은 입력값이된다.</p>
+<p>따라서 풀이 순서는 </p>
+<ul>
+<li>python 에는 팩토리얼 계산 함수가 있으므로 import해서 바로 사용하기.</li>
+<li>팩토리얼 계산 함수로 <code>(2n)! / (n+1)!n!</code> 공식 계산하기</li>
+<li>부동소수점 연산 문제로 나눗셈을 // 연산자 사용함</li>
+</ul>
+<p>카탈란 수를 이용해서 해결하면 간단하다.</p>
+<h3 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">from math import factorial;</span><br><span class="line"></span><br><span class="line">def parenthesisCase(n):</span><br><span class="line">    return factorial(n*2) // (factorial(n+1) * factorial(n))</span><br></pre></td></tr></table></figure>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/카탈란수/">#카탈란수</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="http://tachyons.io/img/avatar_1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Choi sungho">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Y?N
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+                        <div class="mt5 tc tl-l">
+    <h3>Categories</h3>
+    
+        <p>
+            <a href="/categories/알고리즘/">알고리즘</a>
+        </p>
+    
+</div>
+
+
+                        <hr class="dn-l mw4 black-50 mt5" />
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2018/04/24/kakao-friends-4-block/">kakao-friends-4-block</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/23/level-8/">level-8-올바른 괄호</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/20/Aws-Summit-2018/">Aws-Summit-2018 후기</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/?lang=en" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://dribbble.com/" target="_blank">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/klugjo/hexo-theme-anodyne" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://plus.google.com/" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.behance.net/" target="_blank">
+                            <i class="fa fa-behance"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://500px.com/" target="_blank">
+                            <i class="fa fa-500px"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:test@example.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                7vv1270@gmail.com
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+</html>

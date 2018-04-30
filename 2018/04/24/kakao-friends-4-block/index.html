@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<body2>
+    로딩중..
+</body2>
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="카카오 프렌즈 4블록알고리즘 문제 해결능력이 필요할거 같아서 카카오 예선 문제를 풀어보았다.
+사용언어
+javascript
+
+소스 코드1234567891011121314151617181920212223242526272829303132333435solution = (boa">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Choi sungho">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="kakao-friends-4-block"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="7vv 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>kakao-friends-4-block - 7vv 블로그</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light banner">
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="white" href="/" title="7vv 블로그">
+            <i class="header-icon2 fa fa-home"></i>
+        </a>
+        <div class="db dtc-l v-mid w-100">
+            <!-- 
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+             -->
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘/">알고리즘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/활동/">활동</a></li></ul>    
+       
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Aws-Summit-Seoul-2018/">Aws Summit Seoul 2018</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/카카오-예선/">카카오 예선</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/카탈란수/">카탈란수</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/프렌즈-4-블록/">프렌즈 4 블록</a></li></ul> 
+            <div class="admin-icon-box">
+                <i class="fa fa-cogs"></i>
+            </div>   
+        </div>
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center dt">
+        <div class="dtc v-mid white">
+            <!-- <h1 class="f1-l f2-m tc tc-m tl-ns">kakao-friends-4-block</h1>
+            <p class="f4 fw3 tc tc-m tl-ns">2018-04-24</p>                -->
+                 
+        </div>        
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- 태그, 카테고리, 페이지로딩 ... -->
+<script>
+    const show = 'show';
+    const hidden = 'hidden';
+    const imgResizeBox = ['img-10','img-20','img-30','img-40','img-50','img-60','img-70','img-80','img-90'];    
+    const domController = {
+        show: 'body',
+        loading : 'body2',
+    };
+
+    //util prototype    
+    Array.prototype.random = function(){var count = this.length, randomnumber,temp; while( count ){ randomnumber = Math.random() * count-- | 0; temp = this[count]; this[count] = this[randomnumber]; this[randomnumber] = temp} return this}
+
+    //로딩화면 숨기기
+    try{
+        document.querySelector(domController.loading).classList += show;
+        document.querySelector(domController.show).classList += hidden;    
+    }catch(e){
+        console.log(e);
+    }
+    
+    window.onload = function() {       
+        //이미지 리사이징        
+        for(const size of imgResizeBox){
+            document.querySelectorAll(`img[title="${size}"]`).forEach((e)=>{
+                e.classList = size;
+            });
+        }
+        
+        //태그 #붙여주기        
+        document.querySelectorAll('.tag-list > li > a').forEach(e=> e.innerText = '#'+ e.innerText)
+        //태그 섞기
+        const tagList = (document.querySelector('.tag-list').innerHTML).split('</li>')            
+        document.querySelector('.tag-list').innerHTML = tagList.random().join('</li>');
+
+        //로딩완료
+        Object.keys(domController).forEach( e => document.querySelector(domController[e]).classList = '');        
+    }
+</script>
+
+<!-- 관리자 메뉴 -->
+<script>
+    
+</script>
+
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/카카오-예선/">#카카오 예선</a> <a class="fw3 ph1 dib" href="/tags/프렌즈-4-블록/">#프렌즈 4 블록</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h1 id="카카오-프렌즈-4블록"><a href="#카카오-프렌즈-4블록" class="headerlink" title="카카오 프렌즈 4블록"></a>카카오 프렌즈 4블록</h1><p>알고리즘 문제 해결능력이 필요할거 같아서 카카오 예선 문제를 풀어보았다.</p>
+<h3 id="사용언어"><a href="#사용언어" class="headerlink" title="사용언어"></a>사용언어</h3><ul>
+<li>javascript</li>
+</ul>
+<h3 id="소스-코드"><a href="#소스-코드" class="headerlink" title="소스 코드"></a>소스 코드</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">solution = (board) =&gt; &#123;</span><br><span class="line">    const rows = board.length;</span><br><span class="line">    const cols = board[0].length;</span><br><span class="line">    //배열을 90&apos; 뒤집어서 블럭 제거를 편하게 하기    </span><br><span class="line">    let turnBoard = board[0].split(&apos;&apos;).map((row, i) =&gt; &#123;</span><br><span class="line">        return board.map(col =&gt; &#123; </span><br><span class="line">            return col[i]; </span><br><span class="line">        &#125;).reverse();</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    (start = () =&gt; &#123;</span><br><span class="line">        let flag = false;</span><br><span class="line"></span><br><span class="line">        turnBoard.map((row, i) =&gt; &#123;</span><br><span class="line">            if (!turnBoard[i+1]) return;</span><br><span class="line">            for (const j in row) &#123;</span><br><span class="line">                //정규식으로 2x2 블록 체크</span><br><span class="line">                //2x2 블록은 삭제 할 수 있게 소문자로 변환한다</span><br><span class="line">                if (!/([A-Z])\1&#123;3&#125;/i.exec(turnBoard[i][j] + turnBoard[i][+j+1] + turnBoard[i+1][j] + turnBoard[i+1][+j+1])) continue;</span><br><span class="line">                turnBoard[i][j] = turnBoard[i][+j+1] = turnBoard[i+1][j] = turnBoard[i+1][+j+1] = turnBoard[i][j].toLowerCase();</span><br><span class="line">                flag = true;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        //소문자 제거하고 대문자만 옆으로 당겨줌</span><br><span class="line">        turnBoard = turnBoard.map((row, i) =&gt; &#123;</span><br><span class="line">            return row.filter(col =&gt; col.match(/[A-Z]/g));</span><br><span class="line">        &#125;);</span><br><span class="line"></span><br><span class="line">        //2x2블럭이 없으면 중지</span><br><span class="line">        if (flag) start();</span><br><span class="line">    &#125;)();</span><br><span class="line"></span><br><span class="line">    return rows * cols - turnBoard.join(&apos;&apos;).replace(/,/g, &apos;&apos;).length;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="TestCase"><a href="#TestCase" class="headerlink" title="TestCase"></a>TestCase</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">const board = [</span><br><span class="line">    &apos;BA&apos;,</span><br><span class="line">    &apos;AA&apos;,</span><br><span class="line">    &apos;AA&apos;,</span><br><span class="line">    &apos;BB&apos;,</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const board2 = [</span><br><span class="line">    &apos;BAAB&apos;,</span><br><span class="line">    &apos;AAAC&apos;,</span><br><span class="line">    &apos;AADA&apos;,</span><br><span class="line">    &apos;BBEF&apos; </span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const board3 = [</span><br><span class="line">    &apos;CCBDE&apos;, </span><br><span class="line">    &apos;AAADE&apos;, </span><br><span class="line">    &apos;AAABF&apos;, </span><br><span class="line">    &apos;CCBBF&apos;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">const board4 = [</span><br><span class="line">    &apos;TTTANT&apos;, </span><br><span class="line">    &apos;RRFACC&apos;, </span><br><span class="line">    &apos;RRRFCC&apos;, </span><br><span class="line">    &apos;TRRRAA&apos;, </span><br><span class="line">    &apos;TTMMMF&apos;, </span><br><span class="line">    &apos;TMMTTJ&apos;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line">console.log(solution(board));</span><br><span class="line">console.log(solution(board2));</span><br><span class="line">console.log(solution(board3));</span><br><span class="line">console.log(solution(board4));</span><br></pre></td></tr></table></figure>
+<h3 id="문제-설명"><a href="#문제-설명" class="headerlink" title="문제 설명"></a>문제 설명</h3><p>블라인드 공채를 통과한 신입 사원 라이언은 신규 게임 개발 업무를 맡게 되었다. 이번에 출시할 게임 제목은 “프렌즈4블록”.<br>같은 모양의 카카오프렌즈 블록이 2×2 형태로 4개가 붙어있을 경우 사라지면서 점수를 얻는 게임이다.</p>
+<img src="/2018/04/24/kakao-friends-4-block/1.png" title="img-50">
+<p>만약 판이 위와 같이 주어질 경우, 라이언이 2×2로 배치된 7개 블록과 콘이 2×2로 배치된 4개 블록이 지워진다.<br>같은 블록은 여러 2×2에 포함될 수 있으며, 지워지는 조건에 만족하는 2×2 모양이 여러 개 있다면 한꺼번에 지워진다.</p>
+<img src="/2018/04/24/kakao-friends-4-block/2.png" title="img-50">
+<p>블록이 지워진 후에 위에 있는 블록이 아래로 떨어져 빈 공간을 채우게 된다</p>
+<img src="/2018/04/24/kakao-friends-4-block/3.png" title="img-50">
+<p>만약 빈 공간을 채운 후에 다시 2×2 형태로 같은 모양의 블록이 모이면 다시 지워지고 떨어지고를 반복하게 된다.</p>
+<img src="/2018/04/24/kakao-friends-4-block/4.png" title="img-50">
+<p>위 초기 배치를 문자로 표시하면 아래와 같다.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TTTANT</span><br><span class="line">RRFACC</span><br><span class="line">RRRFCC</span><br><span class="line">TRRRAA</span><br><span class="line">TTMMMF</span><br><span class="line">TMMTTJ</span><br></pre></td></tr></table></figure>
+<p>각 문자는 라이언(R), 무지(M), 어피치(A), 프로도(F), 네오(N), 튜브(T), 제이지(J), 콘(C)을 의미한다</p>
+<p>입력으로 블록의 첫 배치가 주어졌을 때, 지워지는 블록은 모두 몇 개인지 판단하는 프로그램을 제작하라</p>
+<h3 id="입력-형식"><a href="#입력-형식" class="headerlink" title="입력 형식"></a>입력 형식</h3><ul>
+<li>입력으로 판의 높이 m, 폭 n과 판의 배치 정보 board가 들어온다.</li>
+<li>2 ≦ n, m ≦ 30</li>
+<li>board는 길이 n인 문자열 m개의 배열로 주어진다. 블록을 나타내는 문자는 대문자 A에서 Z가 사용된다</li>
+</ul>
+<h3 id="출력-형식"><a href="#출력-형식" class="headerlink" title="출력 형식"></a>출력 형식</h3><p>입력으로 주어진 판 정보를 가지고 몇 개의 블록이 지워질지 출력하라.</p>
+<h3 id="입출력-예제"><a href="#입출력-예제" class="headerlink" title="입출력 예제"></a>입출력 예제</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">m	n	                                board	                        answer</span><br><span class="line">4	5	[“CCBDE”, “AAADE”, “AAABF”, “CCBBF”]	                         14</span><br><span class="line">6	6	[“TTTANT”, “RRFACC”, “RRRFCC”, “TRRRAA”, “TTMMMF”, “TMMTTJ”]	 15</span><br></pre></td></tr></table></figure>
+<h3 id="예제에-대한-설명"><a href="#예제에-대한-설명" class="headerlink" title="예제에 대한 설명"></a>예제에 대한 설명</h3><ul>
+<li>입출력 예제 1의 경우, 첫 번째에는 A 블록 6개가 지워지고, 두 번째에는 B 블록 4개와 C 블록 4개가 지워져, 모두 14개의 블록이 지워진다.</li>
+<li>입출력 예제 2는 본문 설명에 있는 그림을 옮긴 것이다. 11개와 4개의 블록이 차례로 지워지며, 모두 15개의 블록이 지워진다.</li>
+</ul>
+<h3 id="문제-해설"><a href="#문제-해설" class="headerlink" title="문제 해설"></a>문제 해설</h3><p>이런 문제를 매트릭스라고 하는데 매트릭스 문제가 잘 맞는지 재미있게 풀었습니다.</p>
+<ul>
+<li>블럭을 순차적으로 이동하면서 주면에 2x2 블럭이 있는지 확인합니다.</li>
+<li>주변에 2x2 블럭이 있으면 해당 알파벳을 소문자로 바꿔줍니다.</li>
+<li>모든 블럭을 돌고난 뒤, 소문자로 변한 알파벳들을 제거합니다.</li>
+<li>제거하고 나서 남은 블럭들을 아래로 당겨옵니다. ( 당겨올때는 Array.filter를 사용했는데 이를 가능하게 한 이유는 배열을 당길 수 있게 90’로 돌렸기 때문입니다. )</li>
+<li>다시 처음부터 진행합니다. 만약 2x2 블럭이 존재하지 않는다면 중지하고 결과를 계산합니다.</li>
+</ul>
+<p>특이한점은 배열 2x2 계산할때 4칸을 하나의 string으로 만든 뒤 정규표현식으로 같은 문자열이 4번 반복되는지 체크하기,<br>블럭을 당기기 위해 90’ 돌리기, 알파벳을 소문자로 바꿔 겹치는 블럭이 있어도 쉽게 해결했던거 같습니다.</p>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/카카오-예선/">#카카오 예선</a> <a class="fw3 ph1 dib" href="/tags/프렌즈-4-블록/">#프렌즈 4 블록</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="http://tachyons.io/img/avatar_1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Choi sungho">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Y?N
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+                        <div class="mt5 tc tl-l">
+    <h3>Categories</h3>
+    
+        <p>
+            <a href="/categories/알고리즘/">알고리즘</a>
+        </p>
+    
+</div>
+
+
+                        <hr class="dn-l mw4 black-50 mt5" />
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2018/04/24/kakao-friends-4-block/">kakao-friends-4-block</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/23/level-8/">level-8-올바른 괄호</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/20/Aws-Summit-2018/">Aws-Summit-2018 후기</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/?lang=en" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://dribbble.com/" target="_blank">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/klugjo/hexo-theme-anodyne" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://plus.google.com/" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.behance.net/" target="_blank">
+                            <i class="fa fa-behance"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://500px.com/" target="_blank">
+                            <i class="fa fa-500px"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:test@example.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                7vv1270@gmail.com
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+</html>
