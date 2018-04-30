@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<body2>
+    로딩중..
+</body2>
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="socket.io aws elasticbeanstalk + nginx 환경에서 사용하기발단기존에 존재하는 소켓 서버가 한대가 있고, 소켓 서버를 이용하는 어플리케이션 서버가 여러대 있었다.소켓 서버로 트래픽이 몰리게 되면 오토스케일링, 로드벨런서가 달려있지 않아서 대비">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Choi sungho">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="socket.io aws elasticbeanstalk + nginx 환경에서 사용하기"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="7vv 블로그"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>socket.io aws elasticbeanstalk + nginx 환경에서 사용하기 - 7vv 블로그</title>
+
+    <!-- Tachyons Core CSS -->
+    <link rel="stylesheet" href="//unpkg.com/tachyons/css/tachyons.min.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Google Analytics -->
+    
+
+
+</head>
+
+
+<body>
+
+<!-- Main Content -->
+<!-- Banner -->
+<!-- Banner -->
+<div class="w-100 bg-1 ph5-ns ph3 text-light banner">
+    <nav class="db dt-l w-100 mw8 center border-box pv3">
+        <a class="white" href="/" title="7vv 블로그">
+            <i class="header-icon2 fa fa-home"></i>
+        </a>
+        <div class="db dtc-l v-mid w-100">
+            <!-- 
+                <a class="link dim f6 f5-l dib mr3 mr4-l white" 
+                    href="/" 
+                    title="Home">
+                    Home
+                </a>
+             -->
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/socket-io/">socket.io</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘/">알고리즘</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/활동/">활동</a></li></ul>    
+       
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/aws/">aws</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/node-js/">node.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a></li></ul>          
+        </div> 
+    </nav>
+
+    <!-- Title -->
+    <div class="w-100 mw8 center dt">
+        <div class="dtc v-mid white">
+            <!-- <h1 class="f1-l f2-m tc tc-m tl-ns">socket.io aws elasticbeanstalk + nginx 환경에서 사용하기</h1>
+            <p class="f4 fw3 tc tc-m tl-ns">2018-04-30</p>                -->
+                 
+        </div>        
+    </div>
+
+    <!-- Icon -->
+    <div class="relative w-100 mw8 center white dn dn-m db-ns">
+        <i class="header-icon fa fa-file-text-o"></i>
+    </div>
+</div>
+
+<!-- 태그, 카테고리, 페이지로딩 ... -->
+<script>
+    const show = 'show';
+    const hidden = 'hidden';
+    const imgResizeBox = ['img-10','img-20','img-30','img-40','img-50','img-60','img-70','img-80','img-90'];    
+    const domController = {
+        show: 'body',
+        loading : 'body2',
+    };
+
+    //util prototype    
+    Array.prototype.random = function(){var count = this.length, randomnumber,temp; while( count ){ randomnumber = Math.random() * count-- | 0; temp = this[count]; this[count] = this[randomnumber]; this[randomnumber] = temp} return this}
+
+    //로딩화면 숨기기
+    try{
+        document.querySelector(domController.loading).classList += show;
+        document.querySelector(domController.show).classList += hidden;    
+    }catch(e){
+        console.log(e);
+    }
+    
+    window.onload = function() {       
+        //이미지 리사이징        
+        for(const size of imgResizeBox){
+            document.querySelectorAll(`img[title="${size}"]`).forEach((e)=>{
+                e.classList = size;
+            });
+        }
+        
+        //태그 #붙여주기        
+        document.querySelectorAll('.tag-list > li > a').forEach(e=> e.innerText = '#'+ e.innerText)
+        //태그 섞기
+        const tagList = (document.querySelector('.tag-list').innerHTML).split('</li>')            
+        document.querySelector('.tag-list').innerHTML = tagList.random().join('</li>');
+
+        //로딩완료
+        Object.keys(domController).forEach( e => document.querySelector(domController[e]).classList = '');        
+    }
+</script>
+
+<!-- 관리자 메뉴 -->
+<script>
+    
+</script>
+
+
+<!-- Content -->
+<div class="w-100 ph2 ph4-m ph5-l mv5 mv6-l">
+    <div class="content">
+        <div class="mw8 center">
+            <div class="cf">
+                <div class="fl w-100 w-70-l mw7 left fw3 lh-copy pr4-ns pr0-m post-content">
+                    <!-- Tags Vertical -->
+                    
+                        <div class="tags-container-vertical">
+                            <div class="tags-sub-container">
+                                <a class="fw3 ph1 dib" href="/tags/aws/">#aws</a>
+                            </div>
+                        </div>
+                    
+
+                    <!-- Main Post Content -->
+                    <h1 id="socket-io-aws-elasticbeanstalk-nginx-환경에서-사용하기"><a href="#socket-io-aws-elasticbeanstalk-nginx-환경에서-사용하기" class="headerlink" title="socket.io aws elasticbeanstalk + nginx 환경에서 사용하기"></a>socket.io aws elasticbeanstalk + nginx 환경에서 사용하기</h1><h3 id="발단"><a href="#발단" class="headerlink" title="발단"></a>발단</h3><p>기존에 존재하는 소켓 서버가 한대가 있고, 소켓 서버를 이용하는 어플리케이션 서버가 여러대 있었다.<br>소켓 서버로 트래픽이 몰리게 되면 오토스케일링, 로드벨런서가 달려있지 않아서 대비책은 서버 사양을 올리는 방법 뿐이였다.<br>이러한 방법은 한계가 있기 때문에. 소켓 서버 비용도 절감하면서 다중 서버 환경을 만들기 위해 진행했던 방법이다.</p>
+<p>소켓 서버에 트래픽이 몰리게 되는 현상은 어플리케이션 서버에 요청이 늘어나 오토스케일링에 의해 여러대로 늘어난 상황이다.<br>어플리케이션 서버에 남는 자원을 활용해 소켓 서버를 어플리케이션 서버에 합쳐 같이 오토스케일링에 의해 관리되게 변경하게 되었다.<br>소켓 서버 비용도 들지않고, 단일 서버 문제도 해결할 수 있었다.</p>
+<p>가능한 환경을 바꾸지 않기 위해 기존에 존재하는 eb설정을 변경하지 않고 진행하고자 생각했다.<br>하지만 어플리케이션 서버는 aws eb를 사용하고 classic load balancer 환경으로 프록시에 문제가 있었는데 아래 방법으로 해결하였다.</p>
+<h2 id="nginx-socket-io-사용하기"><a href="#nginx-socket-io-사용하기" class="headerlink" title="nginx + socket.io 사용하기"></a>nginx + socket.io 사용하기</h2><p>eb를 사용해서 <em>express + socket.io</em> 사용할 때 aws console 에서 eb를 만들게 되면<br>classic load balancer를 사용하는데 로드벨런서에 proxy 기능이 없어서 곤란할 때가 있었습니다.<br>이때 nginx으로 해결 할 수 있는 방법이 있습니다. </p>
+<h3 id="eb-ebextensions에-nginx-환경-설정-파일-생성"><a href="#eb-ebextensions에-nginx-환경-설정-파일-생성" class="headerlink" title="eb ebextensions에 nginx 환경 설정 파일 생성"></a>eb ebextensions에 nginx 환경 설정 파일 생성</h3><ul>
+<li>upstream 에서 nodejs, socket로 나뉘어 지는데 들어오는 각각 서버에 대한 포트번호 입니다.</li>
+<li>proxy_set_header connection upgrade를 해야 client 에서 핸드쉐이킹 오류가 발생하지 않습니다.<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">files:</span><br><span class="line">  &quot;/etc/nginx/conf.d/01_websockets.conf&quot;:</span><br><span class="line">    mode: &quot;000644&quot;</span><br><span class="line">    owner: root</span><br><span class="line">    group: root</span><br><span class="line">    content: |</span><br><span class="line">      upstream nodejs &#123; </span><br><span class="line">        server 127.0.0.1:8081;</span><br><span class="line">        keepalive 256;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      upstream socket &#123;</span><br><span class="line">        server 127.0.0.1:9000;</span><br><span class="line">        keepalive 256;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">      server &#123;</span><br><span class="line">        listen 8080;</span><br><span class="line"></span><br><span class="line">        location / &#123;</span><br><span class="line">          proxy_pass  http://nodejs;</span><br><span class="line">          proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">          proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">          proxy_http_version 1.1;</span><br><span class="line">          proxy_set_header  Host  $host;</span><br><span class="line">          proxy_set_header  X-Real-IP $remote_addr;</span><br><span class="line">          proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location /socket.io &#123;</span><br><span class="line">          proxy_pass http://socket;</span><br><span class="line">          proxy_http_version 1.1;</span><br><span class="line">          proxy_redirect off;</span><br><span class="line">          proxy_buffering off;</span><br><span class="line"></span><br><span class="line">          proxy_set_header Host $host;</span><br><span class="line">          proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;</span><br><span class="line"></span><br><span class="line">          proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">          proxy_set_header Connection &quot;Upgrade&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line"></span><br><span class="line">  &quot;/opt/elasticbeanstalk/hooks/appdeploy/enact/41_remove_eb_nginx_confg.sh&quot;:</span><br><span class="line">    mode: &quot;000755&quot;</span><br><span class="line">    owner: root</span><br><span class="line">    group: root</span><br><span class="line">    content : |</span><br><span class="line">      mv /etc/nginx/conf.d/00_elastic_beanstalk_proxy.conf /etc/nginx/conf.d/00_elastic_beanstalk_proxy.conf.old</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="nginx를-사용한-socket-io에-연결하는-client-설정"><a href="#nginx를-사용한-socket-io에-연결하는-client-설정" class="headerlink" title="nginx를 사용한 socket.io에 연결하는 client 설정"></a>nginx를 사용한 socket.io에 연결하는 client 설정</h3><ul>
+<li>nginx를 사용해서 socieet.io 에 연결할때 client socket.io.resource에서 nginx socket.io 설정한 location으로 지정해줘야 합니다.</li>
+<li><p>‘nginx path’/socket.io 같은 형식입니다.</p>
+</li>
+<li><p>예제 코드</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">io.connect(&apos;host&apos;, &#123;</span><br><span class="line">    resource: &apos;socket.io/socket.io&apos;,        </span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="societ-io-다중-서버-환경에서-session-id-unknown-발생-할-때"><a href="#societ-io-다중-서버-환경에서-session-id-unknown-발생-할-때" class="headerlink" title="societ.io 다중 서버 환경에서 session id unknown 발생 할 때"></a>societ.io 다중 서버 환경에서 session id unknown 발생 할 때</h3><p>다중 서버 환경에서 nginx + socket.io 으로 사용하는 환경에서 발생하기도 합니다.<br>A 서버로 소켓 연결을 시도하면 A서버에 롱 폴링으로 인증이 완료된 뒤 폴링을 끊고 A서버로 소켓 연결을 해야하는데 B서버로 롱폴링 연결을 해버리면 societ.io 에서 <em>session id unknown</em> 오류가 발생합니다. 이때 해결 방안은 socket.io client 에서 웹소켓을 강제 사용으로 설정하면 해결 할 수 있습니다.<br>하지만 강제로 사용하면 브라우저가 웹소켓을 지원하지 않을때 문제가 발생하게 되는데, 강제로 지정하지 않고 해결할 수 있는 방법은 elb sticky session 를 이용하면 됩니다.</p>
+<ul>
+<li>예제 코드<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> io.connect(&apos;host&apos;, &#123;</span><br><span class="line">    resource: &apos;socket.io/socket.io&apos;,        </span><br><span class="line">    transports: [&apos;websocket&apos;],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="elasticbeanstalk에서-socket-io를-사용하기-위한-기본-환경-설정"><a href="#elasticbeanstalk에서-socket-io를-사용하기-위한-기본-환경-설정" class="headerlink" title="elasticbeanstalk에서 socket.io를 사용하기 위한 기본 환경 설정"></a>elasticbeanstalk에서 socket.io를 사용하기 위한 기본 환경 설정</h2><p>elasticbeanstalk 에 socket.io를 사용할 때 생각대로 잘 안되는 경우가 있습니다<br>환경설정을 따로 해줘야 하는데 안한 경우가 많은데 아래 방법을 참고해서 빠진 부분을 점검해봅시다.</p>
+<ul>
+<li>보안 그룹 socket.io port 허용하기</li>
+<li>elasticbeanstalk 로드 밸런서에 프로토콜 설정</li>
+<li>https(ssl) 사용할때 client 부분 설정</li>
+</ul>
+
+                    
+                    <!-- Tags Bottom -->
+                    
+                        <div class="tags-container-bottom">
+                            <i class="fa fa-tag pr3 text-main-color"></i><a class="fw3 ph1 dib" href="/tags/aws/">#aws</a>
+                        </div>
+                    
+
+                    <!-- Comments -->
+                    
+
+
+
+                </div>
+                <div class="fl w-100 w-30-l center fw3 lh-copy pl4-ns tl black-50">
+                    
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 1: About -->
+                    <div class="mt5 mt0-l">
+    <article class="dt db-l mw8 mw8-m mw5-ns center ml0-l bg-white mv3">
+        <div class="dn dtc-m db-l v-mid tc pr4 pr0-l" style="min-width: 6rem;">
+            <img src="http://tachyons.io/img/avatar_1.jpg" class="mb4-l br-100 h3 w3 h4-l w4-l dib" title="Choi sungho">
+        </div>
+        <div class="dtc db-l v-mid lh-copy measure center f6 black-50 tj">
+            Y?N
+        </div>
+    </article>
+</div>
+
+                    <hr class="dn-l mw4 black-50 mt5" />
+                    
+                    <!-- Widget 2: Categories -->
+                    
+                        <div class="mt5 tc tl-l">
+    <h3>Categories</h3>
+    
+        <p>
+            <a href="/categories/socket-io/">socket.io</a>
+        </p>
+    
+</div>
+
+
+                        <hr class="dn-l mw4 black-50 mt5" />
+                    
+
+                    <!-- Widget 3: Recent Posts -->
+                    <div class="mt5 tc tl-l">
+    <h3>Recent Posts</h3>
+    
+        <p>
+            <a href="/2018/04/30/socket-io-aws/">socket.io aws elasticbeanstalk + nginx 환경에서 사용하기</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/30/socket-io-cluster/">socket.io-분산 서버 환경에서 사용하기</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/24/kakao-friends-4-block/">kakao-friends-4-block</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/23/level-8/">level-8-올바른 괄호</a>
+        </p>
+    
+        <p>
+            <a href="/2018/04/20/Aws-Summit-2018/">Aws-Summit-2018 후기</a>
+        </p>
+    
+</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Footer -->
+<div class="bg-1 ph2 ph5-ns pv5">
+        <div class="mv8">
+            <div class="center tc">
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://twitter.com/?lang=en" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.facebook.com/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://dribbble.com/" target="_blank">
+                            <i class="fa fa-dribbble"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://github.com/klugjo/hexo-theme-anodyne" target="_blank">
+                            <i class="fa fa-github"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://plus.google.com/" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://www.behance.net/" target="_blank">
+                            <i class="fa fa-behance"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="https://500px.com/" target="_blank">
+                            <i class="fa fa-500px"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="mailto:test@example.com" target="_blank">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </div>
+                
+                    <div class="dib mh3">
+                        <a class="f3 f2-ns white dim" href="/#" target="_blank">
+                            <i class="fa fa-rss"></i>
+                        </a>
+                    </div>
+                
+            </div>
+            <div class="f6 f5-ns center tc white pt5 fw3">
+                7vv1270@gmail.com
+            </div>
+        </div>
+    </div>
+
+<!-- After Footer -->
+<!-- Disqus Comments -->
+
+
+
+</body>
+</html>
